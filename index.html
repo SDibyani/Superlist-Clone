@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Superlist Inspired</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+        
+
+    }
+    @keyframes grow-bar {
+      from {
+        height: 0;
+      }
+      to {
+        height: 60px;
+      }
+    }
+
+    .bar-animate {
+      animation: grow-bar 2s ease-out forwards;
+    }
+
+    @keyframes grow-bar-alt {
+    from { width: 0; }
+    to { width: 60px; }
+  }
+
+  .animate-bar-alt {
+    animation: grow-bar-alt 1s ease-out forwards;
+  }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-[#5b2a86] via-[#a83279] to-[#1a001f] min-h-screen text-white min-h-screen">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 bg-white shadow-md flex-wrap">
+  <!-- Logo + Brand -->
+  <div class="flex items-center gap-2">
+    <img src="https://earlyshark.com/wp-content/uploads/2024/02/superlist-logo.png" alt="Logo" class="h-10 w-auto object-contain" />
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Superlist</h1>
+  </div>
+
+  <!-- Hamburger Menu Button -->
+  <div class="md:hidden">
+    <button @click="open = !open" class="text-gray-700 focus:outline-none" x-data="{ open: false }" @click.away="open = false">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :class="{ 'hidden': open }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+
+      <!-- Mobile Menu -->
+      <div x-show="open" class="absolute right-6 top-16 bg-white shadow-lg rounded-md p-4 flex flex-col gap-2 z-50">
+        <a href="#" class="hover:underline">Features</a>
+        <a href="#" class="hover:underline">Updates</a>
+        <a href="#" class="hover:underline">Pricing</a>
+        <a href="#" class="hover:underline">Blog</a>
+        <a href="#" class="hover:underline">Download</a>
+      </div>
+    </button>
+  </div>
+
+  <!-- Desktop Navigation -->
+  <nav class="hidden md:flex space-x-8 text-gray-700 font-medium ml-12">
+    <a href="#" class="hover:underline">Features</a>
+    <a href="#" class="hover:underline">Updates</a>
+    <a href="#" class="hover:underline">Pricing</a>
+    <a href="#" class="hover:underline">Blog</a>
+    <a href="#" class="hover:underline">Download</a>
+  </nav>
+
+  <!-- Auth Buttons -->
+  <div class="flex gap-3 mt-4 md:mt-0 md:ml-auto">
+    <button class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200">
+      Sign in
+    </button>
+    <button class="bg-orange-700 text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200">
+      Sign up
+    </button>
+  </div>
+</header>
+
+
+
+  <!-- Hero Section -->
+  <section class="text-center mt-20 px-6">
+    <button class="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200">Introducing AI Meeting Notes in Superlist</button><br><br>
+    <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
+      Stay on top <br> of everything
+      
+    </h2>
+    <p class="mt-6 text-lg text-gray-400 max-w-xl mx-auto">
+      Superlist generates your meeting notes, tracks follow-ups, and lets you manage all your tasks and notes in one place.
+    </p>
+    <div class="mt-8">
+      <button class="bg-orange-700 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-500 transition">
+        Sign up for free
+      </button>
+      <button class="bg-black-200 text-white px-6 py-3 rounded-full font-bold hover:bg-gray-300 transition">
+        Book a demo
+      </button>
+    </div>
+  </section>
+  <div class="pt-16 px-4">
+    <img src="https://framerusercontent.com/images/Phd9aIZqoVQ1Fa1b71cdzFkU.png?scale-down-to=1024"
+     alt="Superlist UI"
+     class="mx-auto max-w-[90%] md:max-w-3xl lg:max-w-4xl h-auto rounded-xl shadow-xl"
+  />
+  </div>
+  <section class="text-center pt-16 px-4">
+  <h3 class="text-xl font-semibold text-gray-300 mb-8">Used by professionals from:</h3>
+
+  <div class="flex flex-wrap justify-center items-center gap-6">
+    <img
+      src="https://tse3.mm.bing.net/th?id=OIP.oWLIyoWxjuRWqWcoSGpQhgHaHa&pid=Api&P=0&h=180"
+      alt="Company 1"
+      class="w-24 md:w-28 lg:w-32 h-auto object-contain"
+    />
+    <img
+      src="https://seeklogo.com/images/S/spotify-logo-70B5462CAD-seeklogo.com.png"
+      alt="Spotify Logo"
+      class="w-24 md:w-28 lg:w-32 h-auto object-contain"
+    />
+    <img
+      src="https://tse2.mm.bing.net/th?id=OIP.-BF32ekqCf3ZIfbvhzjITwHaFj&pid=Api&P=0&h=180"
+      alt="Company 3"
+      class="w-24 md:w-28 lg:w-32 h-auto object-contain"
+    />
+    <img
+      src="https://vectorseek.com/wp-content/uploads/2021/01/Nvidia-Logo-Vector-730x730.jpg"
+      alt="Nvidia Logo"
+      class="w-24 md:w-28 lg:w-32 h-auto object-contain"
+    />
+  </div>
+  <br>
+  <div class="flex flex-wrap justify-center items-center gap-6">
+    <img
+      src="https://tse3.mm.bing.net/th?id=OIP.3-pjzuhPSIG3zT2T3ggebgHaC2&pid=Api&P=0&h=180"
+      alt="Company 1"
+      class="w-24 md:w-28 lg:w-32 h-auto object-contain"
+    />
+    <img
+      src="https://tse4.mm.bing.net/th?id=OIP.MZFvyrr2Iv6LxL83z-es3QHaHa&pid=Api&P=0&h=180"
+      alt="Spotify Logo"
+      class="w-24 md:w-28 lg:w-32 h-auto object-contain"
+    />
+    <img
+      src="https://tse1.mm.bing.net/th?id=OIP.DaVpaHEezZeEdN_dOj2AjwHaE8&pid=Api&P=0&h=180"
+      alt="Company 3"
+      class="w-24 md:w-28 lg:w-32 h-auto object-contain"
+    />
+    <img
+      src="https://tse4.mm.bing.net/th?id=OIP.DktuMugXFlgutMQ7azMRcwHaFj&pid=Api&P=0&h=180"
+      alt="Nvidia Logo"
+      class="w-24 md:w-28 lg:w-32 h-auto object-contain"
+    />
+
+  </div>
+</section>
+<section>
+  <div class="text-center mt-16 px-4">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6">Tasks and notes together.</h2>
+    <h2 class="text-3xl text-gray-400 md:text-5xl font-bold mb-6">
+      Turn your thoughts into actions.
+    </h2>
+  </div>
+
+  <div class="px-4 pt-8 flex justify-center">
+    <video
+      src="https://framerusercontent.com/assets/oM9GlmQOs801fWf3aUGiWJ9y0.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full max-w-screen-md rounded-xl shadow-lg"
+    ></video>
+  </div>
+</section>
+
+<section class="pt-16 px-6">
+  <div class="flex flex-col md:flex-row items-start justify-between gap-10 max-w-6xl mx-auto">
+
+    <!-- Text Content with Bars -->
+    <div class="md:w-1/2 space-y-10" id="bar-section">
+
+      <!-- Block 1 -->
+      <div class="flex items-start gap-4">
+        <div class="w-1 bg-orange-500 h-0 rounded bar" data-delay="0"></div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-2">Natural Language</h3>
+          <p class="text-gray-400">Type dates and set due dates into tasks.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="w-1 bg-orange-500 h-0 rounded bar" data-delay="2200"></div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-2">Nested Tasks</h3>
+          <p class="text-gray-400">Infinite level of subtasks</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="w-1 bg-orange-500 h-0 rounded bar" data-delay="4400"></div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-2">Tasks from Integrations</h3>
+          <p class="text-gray-400">Slack messages, Linear tickets, & GitHub issues together</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Content -->
+    <div class="md:w-1/2">
+      <video
+        src="https://framerusercontent.com/assets/wiI2N2lIADMOqWdaqbOVLJHDI.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        class="w-full rounded-xl shadow-lg"
+      ></video>
+    </div>
+
+  </div>
+</section>
+
+<section class="pt-16 px-6 max-w-7xl mx-auto" id="feature-section-alt">
+  <!-- Headings -->
+  <div class="text-center mb-10">
+    <h2 class="text-3xl md:text-5xl font-bold mb-4">Move seamlessly from Talk To Done</h2>
+    <h2 class="text-xl md:text-2xl text-gray-400 font-medium">
+      AI-powered meeting notes and voice assistant.
+    </h2>
+  </div>
+
+  <!-- Video -->
+  <div class="flex justify-center mb-12">
+    <video
+      src="https://framerusercontent.com/assets/vJna7cw5kdDkTjGzb51GoTPU4.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full max-w-4xl rounded-xl shadow-lg"
+    ></video>
+  </div>
+    <div class="flex flex-col md:flex-row justify-between gap-10">
+    <!-- Feature 1 -->
+    <div class="flex flex-col w-full md:w-1/3">
+      <div class="h-1 bg-orange-500 w-0 mb-3 bar-alt" data-delay="0"></div>
+      <h3 class="text-xl font-semibold mb-2">AI Meeting Notes</h3>
+      <p class="text-gray-400 text-sm">
+        Turn every conversation into clear, structured notes with summaries, action items, and due dates.
+      </p>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="flex flex-col w-full md:w-1/3">
+      <div class="h-1 bg-orange-500 w-0 mb-3 bar-alt" data-delay="1000"></div>
+      <h3 class="text-xl font-semibold mb-2">AI Chats</h3>
+      <p class="text-gray-400 text-sm">
+        Ask questions and generate follow-up messages from your meetings.
+      </p>
+    </div>
+        <!-- Feature 3 -->
+    <div class="flex flex-col w-full md:w-1/3">
+      <div class="h-1 bg-orange-500 w-0 mb-3 bar-alt" data-delay="2000"></div>
+      <h3 class="text-xl font-semibold mb-2">Voice Assistant</h3>
+      <p class="text-gray-400 text-sm">
+        Turn voice notes into todos, reminders, and notes — just talk and Superlist does the rest.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="pt-16 px-6 max-w-6xl mx-auto">
+  <!-- Text Content -->
+  <div class="text-center mb-8">
+    <h2 class="text-3xl md:text-5xl font-bold mb-4">Supercharge your team.</h2>
+    <p class="text-lg text-gray-400">Share lists and collaborate in real-time.</p>
+  </div>
+
+  <!-- Video Content -->
+  <div class="flex justify-center">
+    <video
+      src="https://framerusercontent.com/assets/iy7wbWMvw7qaXGy8u45mvgoHcaQ.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full max-w-4xl rounded-xl shadow-lg"
+    ></video>
+  </div>
+</section>
+
+<section class="pt-16 px-6 max-w-6xl mx-auto">
+  <div class="flex flex-col md:flex-row gap-10 items-start justify-between">
+    
+    <!-- First Card -->
+    <div class="flex-1 text-center md:text-left">
+      <h3 class="text-2xl font-semibold mb-2">Message in context</h3>
+      <p class="text-gray-500 mb-4">Discuss, debate, or update with a chat on every task</p>
+      <img 
+        src="https://framerusercontent.com/images/F0aV9PbBpSSAp2rd4WzjprS8M.png" 
+        alt="Message in context" 
+        class="w-full max-w-md mx-auto md:mx-0 rounded-lg shadow"
+      />
+    </div>
+
+    <!-- Second Card -->
+    <div class="flex-1 text-center md:text-left">
+      <h3 class="text-2xl font-semibold mb-2">Updates for all</h3>
+      <p class="text-gray-500 mb-4">Never miss a list or task with a sleek all-in-one view</p>
+      <img 
+        src="https://framerusercontent.com/images/MAsSDfdhVzUHbC9U9xj5PF9LSQ.png" 
+        alt="Updates for all" 
+        class="w-full max-w-md mx-auto md:mx-0 rounded-lg shadow"
+      />
+    </div>
+
+  </div>
+</section>
+
+
+<section class="pt-16 px-6 max-w-4xl mx-auto text-center">
+  <!-- Heading -->
+  <div class="mb-8">
+    <h1 class="text-3xl md:text-5xl font-bold">
+      Elevating lists to <span class="text-orange-600">"Super"</span> status
+    </h1>
+  </div>
+
+  <!-- Images -->
+  <div class="flex flex-col items-center gap-6">
+    <img 
+      src="https://tse1.mm.bing.net/th?id=OIP.zCKsWT_RfW-oOHJZ61abvAHaHa&pid=Api&P=0&h=180" 
+      alt="Award Icon" 
+      class="w-32 md:w-40"
+    />
+    
+    <img 
+      src="https://ai-image-editor-wasabi-bucket.apyhi.com/productHunt/prod-of-the-day.png" 
+      alt="Product Hunt Badge" 
+      class="w-48 md:w-60"
+    />
+
+    <div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Real-time collaboration
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+        Bring your team , friends , clients to one single aap.
+      </span>
+    </span>
+  </p>
+</div>
+
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Repeatable tasks
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+        Set tasks to repeat to stay on top of your rabits , and routines.
+      </span>
+    </span>
+  </p>
+</div>
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Offline Support
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+        Keep working , even when your internet isn't. We'll sync it later.
+    </span>
+    </span>
+  </p>
+</div>
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Widgets
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+       Superlist on your home screen.
+      </span>
+    </span>
+  </p>
+</div>
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Nested Lists & Tasks
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+        Add a subtask , and another one , and another one . It goes on forever , quite infinitely..
+      </span>
+    </span>
+  </p>
+</div>
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Multiplatform
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+        Seamlessly work across macOS, iOS,Android, and web.
+      </span>
+    </span>
+  </p>
+</div>
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Integrations
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+         Turn emails , and Slack messages into tasks with one click .
+      </span>
+    </span>
+  </p>
+</div>
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Reminders
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+        Deadline no more with reminders.
+      </span>
+    </span>
+  </p>
+</div>
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    AI-Powered
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+        Whether starting a project , planning your week , or just jotting tasks , all you need is prompt.
+      </span>
+    </span>
+  </p>
+</div>
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Private
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+       Superlists are private by default . Share only what you want to .
+      </span>
+    </span>
+  </p>
+</div>
+<div class="relative flex justify-center items-center mt-6">
+  <p class="relative group text-3xl font-bold text-white-900 hover:text-orange-500 cursor-pointer transition-colors duration-300">
+    Fast AF
+
+    <!-- Tooltip on the right -->
+    <span class="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 hidden group-hover:flex items-center space-x-2 z-10">
+      <!-- Arrow pointing from left -->
+      <span class="w-28 h-3 bg-orange-500 rotate-45"></span>
+      
+      <!-- Tooltip box -->
+      <span class="bg-orange-500 text-white px-4 py-2 rounded shadow-lg text-sm font-medium">
+       Work at the speed of light.
+      </span>
+    </span>
+  </p>
+</div>
+<div class="mt-10 text-center">
+  <p class="text-gray-500 text-lg leading-relaxed" style="font-family: 'Rock Salt', cursive;">
+    In a sea of ultra-efficient productivity <br>
+    tools, <span class="text-gray-700 font-semibold">Superlist</span> &nbsp;
+    <span class="text-blue-500">b</span>
+    <span class="text-orange-500">r</span>
+    <span class="text-sky-500">i</span>
+    <span class="text-blue-500">n</span>
+    <span class="text-orange-500">g</span>
+    <span class="text-sky-500">s</span>  &nbsp;
+    <span class="text-blue-500"> </span>
+    <span class="text-orange-500">a</span> &nbsp;
+    <span class="text-sky-500"> </span>
+    <span class="text-blue-500">l</span>
+    <span class="text-orange-500">i</span>
+    <span class="text-sky-500">t</span>
+    <span class="text-blue-500">t</span>
+    <span class="text-orange-500">l</span>
+    <span class="text-sky-500">e</span> &nbsp;
+    <span class="text-blue-500"> </span>
+    <span class="text-orange-500">m</span>
+    <span class="text-sky-500">o</span>
+    <span class="text-blue-500">r</span>
+    <span class="text-orange-500">e</span> &nbsp;
+    <span class="text-sky-500"> </span>
+    <span class="text-blue-500">f</span>
+    <span class="text-orange-500">u</span>
+    <span class="text-sky-500">n</span> &nbsp;
+    <span class="text-blue-500"> </span>
+    <span class="text-orange-500">t</span>
+    <span class="text-sky-500">o</span> &nbsp;
+    <span class="text-blue-500"> </span>
+    <span class="text-orange-500">g</span>
+    <span class="text-sky-500">e</span>
+    <span class="text-blue-500">t</span>
+    <span class="text-orange-500">t</span>
+    <span class="text-sky-500">i</span>
+    <span class="text-blue-500">n</span>
+    <span class="text-orange-500">g</span> &nbsp;
+    <span class="text-sky-500"> </span>
+    <span class="text-blue-500">t</span>
+    <span class="text-orange-500">h</span>
+    <span class="text-sky-500">i</span>
+    <span class="text-blue-500">n</span>
+    <span class="text-orange-500">g</span>
+    <span class="text-sky-500">s</span> &nbsp;
+    <span class="text-blue-500"> </span>
+    <span class="text-orange-500">d</span>
+    <span class="text-sky-500">o</span>
+    <span class="text-blue-500">n</span>
+    <span class="text-orange-500">e</span>
+    <span class="text-sky-500">.</span>
+  </p>
+</div>
+
+  </div>
+</section>
+
+<section class="text-center mt-20 px-6">
+    
+    <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
+      Streamline your <br> work and increase <br> accountability today.
+      
+    </h2>
+    
+    <div class="mt-8">
+      <button class="bg-orange-700 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-500 transition">
+        Download Mac App
+      </button>
+      <button class="bg-black-200 text-white px-6 py-3 rounded-full font-bold hover:bg-gray-300 transition">
+        Book a demo
+      </button>
+    </div>
+  </section>
+
+  
+
+  <!-- Footer -->
+  <footer class="mt-24 py-12 text-gray-900 text-sm bg-black-50">
+  <!-- Sections Row -->
+  <div class="flex flex-col md:flex-row flex-wrap justify-between gap-12 px-8">
+
+    <!-- Company Section -->
+    <div>
+      <h3 class="text-orange-500 text-xl font-semibold mb-4">Company</h3>
+      <div class="flex gap-12">
+        <ol class="space-y-2 text-gray-700">
+          <li>Become an Affiliate</li>
+          <li>Updates</li>
+          <li>Pricing</li>
+          <li>Careers</li>
+          <li>Suggestions</li>
+          <li>Help Center</li>
+        </ol>
+      <ol class="space-y-2 text-gray-700">
+          <li>Open Source</li>
+          <li>Cookies</li>
+          <li>Privacy</li>
+          <li>Terms</li>
+          <li>Contact</li>
+          <li>Blog</li>
+        </ol>
+      </div>
+    </div>
+  
+
+    <!-- App Section -->
+  <div>
+      <h3 class="text-pink-500 text-xl font-semibold mb-4">App</h3>
+      <ol class="space-y-2 text-gray-700">
+        <li>Mac</li>
+        <li>Web</li>
+        <li>iOS</li>
+        <li>Android</li>
+        <li>Sign in</li>
+      </ol>
+    </div>
+   <!-- Social Section -->
+    <div>
+      <h3 class="text-blue-500 text-xl font-semibold mb-4">Social</h3>
+      <ol class="space-y-2 text-gray-700">
+        <li>Github</li>
+        <li>LinkedIn</li>
+        <li>Instagram</li>
+        <li>X</li>
+      </ol>
+    </div>
+
+  <!-- Updates Box -->
+    <div>
+      <h3 class="text-green-500 text-xl font-semibold mb-4">Updates</h3>
+      <div class="bg-pink-200 text-white-300 max-w-xs p-6 border rounded-lg shadow-md bg-grey-300 hover:text-red-600 transition-colors duration-300 cursor-pointer">
+        <p class="text-lg font-medium mb-2">Version 1.33.0</p>
+        <p class="text-base mb-2">Live Meeting Chat</p>
+        <p class="text-base">June 4, 2025</p>
+      </div>
+    </div>
+
+  </div>
+    
+   <!-- Divider -->
+  <div class="my-10 border-t border-gray-200"></div>
+
+  <!-- Bottom Copyright -->
+  <div class="text-center text-gray-600 text-sm">
+    © 2025 Superlist
+  </div>
+</footer>
+
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bars = document.querySelectorAll('#bar-section .bar');
+        bars.forEach(bar => {
+          const delay = bar.getAttribute('data-delay');
+          setTimeout(() => {
+            bar.classList.add('bar-animate');
+          }, delay);
+        });
+        observer.disconnect(); // Trigger only once
+      }
+    });
+  }, { threshold: 0.4 });
+
+  observer.observe(document.querySelector('#bar-section'));
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bars = document.querySelectorAll('.bar-alt');
+          bars.forEach(bar => {
+            const delay = parseInt(bar.dataset.delay);
+            setTimeout(() => {
+              bar.classList.add('animate-bar-alt');
+            }, delay);
+          });
+          obs.disconnect(); // run only once
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const section = document.querySelector('#feature-section-alt');
+    if (section) observer.observe(section);
+  });
+</script>
+
+</body>
+</html>
